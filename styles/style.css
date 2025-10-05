@@ -1,6 +1,10 @@
 /* FONTES E ESTILOS GERAIS */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
+a {
+    text-decoration: none;
+}
+
 :root {
     --dark-bg: #121212;
     --dark-surface: #1e1e1e;
@@ -39,6 +43,10 @@ footer {
     background-color: var(--dark-surface);
 }
 
+.small {
+    color: #e92525;
+}
+
 /* ANIMAÇÃO DE SCROLL */
 .reveal {
     position: relative;
@@ -69,7 +77,7 @@ footer {
 
 /* HERO SECTION */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner_teste_novo.jpg') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner_teste.png') no-repeat center center;
     background-size: cover;
     height: 100vh;
 }
@@ -215,7 +223,7 @@ footer {
 }
 
 .bi.bi-instagram {
-    color: #ce1d1df6;
+    color: #fffffff6;
     font-size: 30px;
     cursor: pointer;
 }
@@ -225,6 +233,9 @@ footer {
     margin: 10px;
 }
 
+#servicos_coleta {
+    background-color: var(--dark-surface);
+}
 /* ========================================= */
 /* ANIMAÇÃO PULSANTE PARA ÍCONE WHATSAPP     */
 /* ========================================= */
@@ -326,7 +337,7 @@ body {
 }
 
 html {
-    scroll-padding-top: 90px;
+    scroll-padding-top: 70px;
     scroll-behavior: smooth;
 }
 
