@@ -35,6 +35,9 @@ h6 {
     font-weight: 700;
 }
 
+footer {
+    background-color: var(--dark-surface);
+}
 
 /* ANIMAÇÃO DE SCROLL */
 .reveal {
@@ -128,10 +131,10 @@ h6 {
     transform: scale(1.1);
 }
 
-/* SEÇÃO CTA (CALL TO ACTION) */
+/* SEÇÃO CTA (CALL TO ACTION)
 .cta-section {
-    background-color: var(--dark-surface);
-}
+    background-color: var(--dark-bg);
+} */
 
 /* BOTÃO FLUTUANTE WHATSAPP */
 .whatsapp-float {
