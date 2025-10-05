@@ -34,19 +34,21 @@
                     <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li> -->
                     <li class="nav-item"><a class="nav-link" href="#servicos-extras">Serviços Extras</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servico_coleta">Serviço Coleta</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <header id="pagina-inicial" class="hero-section text-white d-flex flex-column justify-content-center align-items-center">
-    <div class="col-lg-6 offset-lg-6 text-center">
-        <h1 class="display-3 fw-bold">A Perfeição em Cada Detalhe</h1>
-        <p class="lead my-3">Seu carro merece o máximo de brilho e cuidado.</p>
-        <a href="#pacotes" id="btn-pacotes" class="btn btn-warning btn-lg fw-bold btn-pacotes">Descubra a diferença</a>
-    </div>
-</header>
+    <header id="pagina-inicial"
+        class="hero-section text-white d-flex flex-column justify-content-center align-items-center">
+        <div class="col-lg-6 offset-lg-6 text-center">
+            <h1 class="display-3 fw-bold">A Perfeição em Cada Detalhe</h1>
+            <p class="lead my-3">Seu carro merece o máximo de brilho e cuidado.</p>
+            <a href="#pacotes" id="btn-pacotes" class="btn btn-warning btn-lg fw-bold btn-pacotes">Descubra adiferença</a>
+        </div>
+    </header>
     <section id="pacotes" class="py-5 bg-dark">
         <div class="container">
             <div class="text-center mb-5 reveal">
@@ -471,8 +473,86 @@
             </div>
         </div>
     </section>
+<section id="servicos" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5 reveal">
+           <h2 class="fw-bold text-light">Agende seu Serviço com Coleta e Entrega</h2>
+            <p class="text-light">
+                Solicite a coleta do seu veículo para um agendamento rápido e fácil. A taxa para este serviço é de <strong>R$ 2,00 por km rodado</strong>, com cálculo a partir de <strong>6km de distância</strong> do nosso endereço.
+            </p>    
+        </div>
+        <div id="servico_coleta" class="row justify-content-center reveal">
+            <div class="col-lg-8">
+                <div class="card service-select-card bg-dark text-light p-4 shadow">
+                    <form id="agendamentoForm">
+                        <div class="mb-3">
+                            <label for="servicoLevaTrazSelect" class="form-label">Selecione o Serviço Desejado</label>
+                            <select class="form-select" id="servicoLevaTrazSelect" required>
+                                <option value="" selected disabled>Escolha um serviço para coleta...</option>
+                                <option value="Lavagem Técnica">Lavagem Técnica</option>
+                                <option value="Enceramento Wax">Enceramento Wax</option>
+                                <option value="Revitalização de Plásticos Externos">Revitalização de Plásticos Externos</option>
+                                <option value="Polimento de Pintura">Polimento de Pintura</option>
+                                <option value="Hidratação de Couro">Hidratação de Couro</option>
+                                <option value="Impermeabilização dos Tecidos">Impermeabilização dos Tecidos</option>
+                                <option value="Higienização do Porta Malas">Higienização do Porta Malas</option>
+                                <option value="Higienização da Cadeirinha">Higienização da Cadeirinha</option>
+                                <option value="Cristalização de Pintura">Cristalização de Pintura</option>
+                                <option value="Vitrificação de Pintura">Vitrificação de Pintura</option>
+                                <option value="Revitalização de Plásticos Internos">Revitalização de Plásticos Internos</option>
+                                <option value="Vitrificação de Vidros">Vitrificação de Vidros</option>
+                                <option value="Descontaminação de Pintura">Descontaminação de Pintura</option>
+                                <option value="Polimento de Faróis">Polimento de Faróis</option>
+                                <option value="Limpeza Técnica de Motor">Limpeza Técnica de Motor</option>
+                                <option value="Higienização Interna">Higienização Interna</option>
+                                <option value="Remoção de Chuva Ácida">Remoção de Chuva Ácida</option>
+                                <option value="Aplicação de Insufilme">Aplicação de Insufilme</option>
+                            </select>
+                        </div>
+                        
+                         <div id="levaeTrazCampos" style="display: none;">
+                            <hr class="my-4 text-light">
+                            <h5 class="fw-bold text-light mb-3">Detalhes para o Serviço de Coleta</h5>
+                            <p>Preencha os campos abaixo para que possamos calcular o valor da coleta e agendar seu serviço.</p>
+                            <div class="mb-3">
+                                <label for="endereco" class="form-label">Endereço de Coleta</label>
+                                <input type="text" class="form-control" id="endereco" placeholder="Ex: Rua Exemplo" required>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="numero" class="form-label">Número</label>
+                                    <input type="text" class="form-control" id="numero" placeholder="Ex: 123" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cep" class="form-label">CEP</label>
+                                    <input type="text" class="form-control" id="cep" placeholder="Ex: 00000-000" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="complemento" class="form-label">Complemento</label>
+                                <input type="text" class="form-control" id="complemento" placeholder="Ex: Apto 101, Bloco B">
+                            </div>
+                            <div class="mb-3">
+                                <label for="veiculo" class="form-label">Modelo e Ano do Veículo</label>
+                                <input type="text" class="form-control" id="veiculo" placeholder="Ex: Fiat Palio Fire 2015" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">Telefone de Contato</label>
+                                <input type="text" class="form-control" id="telefone" placeholder="Ex: (11) 99999-9999" required>
+                            </div>
+                        </div>
 
-    <section id="contato" class="py-5 text-center cta-section">
+                        <button type="submit" class="btn btn-warning fw-bold w-100 mt-3">
+                            <i class="bi bi-whatsapp me-2"></i>Solicitar Coleta e Agendamento
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="contato" class="py-5 text-center cta-section bg-dark">
         <div class="container reveal">
             <h2 class="fw-bold text-light">Pronto para Transformar Seu Veículo?</h2>
             <p class="lead my-3 text-light">Fale conosco ou agende de forma automática com nosso assistente virtual.</p>
@@ -485,10 +565,10 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center p-4">
+    <footer class="text-white text-center p-4">
         <div class="container">
             <p class="mb-2">© 2025 Automotiva DR CAR - Estética Automotiva. Todos os direitos reservados.</p>
-            <p class="small">Endereço: Sua Rua, Nº 123, Bairro, Cidade - SP</p>
+            <p class="small">Endereço: R. Valdomiro Cavazzani, 590A - Jardim Munhoz JúniorOsasco - SP, 06246-170</p>
             <a href="https://www.instagram.com/automotivo_drcar/" target="_blank"><i class="bi bi-instagram"></i>
             </a>
         </div>
