@@ -65,7 +65,7 @@ document.getElementById('agendamentoForm').addEventListener('submit', function (
     return;
   }
 
-  const mensagem = `Olá, gostaria de agendar a coleta do meu veículo para o serviço de *${servicoSelecionado}*.\n\n*Detalhes da Coleta:*\n*Endereço:* ${endereco}, ${numero}\n*Complemento:* ${complemento}\n*CEP:* ${cep}\n*Veículo:* ${veiculo}\n\n*Contato:*\n*Telefone:* ${telefone}\n\nPor favor, informe o valor e a disponibilidade para agendamento.`;
+  const mensagem = `Olá, gostaria de agendar o serviço *Leva e Traz* para o serviço de *${servicoSelecionado}*.\n\n*Detalhes da Coleta:*\n*Endereço:* ${endereco}, ${numero}\n*Complemento:* ${complemento}\n*CEP:* ${cep}\n*Veículo:* ${veiculo}\n\n*Contato:*\n*Telefone:* ${telefone}\n\nPor favor, informe o valor e a disponibilidade para agendamento.`;
 
   const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
   window.open(urlWhatsApp, '_blank');
