@@ -1,182 +1,161 @@
-/* FONTES E ESTILOS GERAIS */
+/* ========================================= */
+/* IMPORTAÇÕES E VARIÁVEIS                  */
+/* ========================================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-a {
-    text-decoration: none;
-}
 
 :root {
     --dark-bg: #121212;
     --dark-surface: #1e1e1e;
     --primary-color: #ffc107;
-    /* Amarelo Bootstrap */
+    --primary-red: #ce1d1df6;
     --text-light: #f8f9fa;
-    --text-light: #adb5bd;
+    --text-muted: #adb5bd;
+    --success-green: #25D366;
+    --transition-speed: 0.3s;
 }
 
-#logo {
-    height: 65px
+/* ========================================= */
+/* ESTILOS GERAIS                           */
+/* ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--dark-bg);
     color: var(--text-light);
-    scroll-padding-top: 100px;
+    scroll-padding-top: 90px;
+    overflow-x: hidden;
 }
 
 html {
-    scroll-padding-top: 90px;
+    scroll-padding-top: 70px;
     scroll-behavior: smooth;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+a {
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-footer {
-    background-color: var(--dark-surface);
+/* ========================================= */
+/* NAVBAR                                   */
+/* ========================================= */
+#logo {
+    height: 60px;
+    width: auto;
+    transition: transform var(--transition-speed) ease;
 }
 
-.small {
-    color: #e92525;
+#logo:hover {
+    transform: scale(1.05);
 }
 
-/* ANIMAÇÃO DE SCROLL */
-.reveal {
-    position: relative;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 1s ease;
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.reveal.active {
-    transform: translateY(0px);
-    opacity: 1;
-}
-
-/* NAVBAR */
 .navbar-brand strong {
     color: var(--primary-color);
 }
 
 .navbar-dark .nav-link {
-    color: rgba(255, 255, 255, 0.75);
-    transition: color 0.2s;
+    color: rgba(255, 255, 255, 0.85);
+    transition: color var(--transition-speed);
+    padding: 0.5rem 1rem;
 }
 
 .navbar-dark .nav-link:hover,
 .navbar-dark .nav-link.active {
-    color: #ce1d1df6;
+    color: var(--primary-red);
 }
 
-/* HERO SECTION */
+/* ========================================= */
+/* HERO SECTION                             */
+/* ========================================= */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/banner_teste.png') no-repeat center center;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('../img/banner_teste.png') no-repeat center center;
     background-size: cover;
-    height: 100vh;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
 }
 
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================= */
+/* BOTÕES                                   */
+/* ========================================= */
 .btn-warning {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     color: #000;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
 }
 
-/* SEÇÃO DE SERVIÇOS */
-#servicos {
-    background-color: var(--dark-surface);
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
 }
 
-.service-card {
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.btn-success {
+    transition: all var(--transition-speed) ease;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
+/* ========================================= */
+/* ANIMAÇÃO DE SCROLL                       */
+/* ========================================= */
+.reveal {
+    position: relative;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.8s ease;
 }
 
-/* NOVO ESTILO PARA O BOTÃO OUTLINE NOS CARDS DE SERVIÇO */
-.service-card .btn-outline-warning {
-    border-color: #f8f9fa;
-    /* Borda branca sutil */
-    color: #f8f9fa;
-    /* Texto branco */
-    transition: all 0.3s ease;
-    background-color: #ce1d1df6;
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
 }
 
-.service-card .btn-outline-warning:hover {
-    /*background-color: var(--primary-color); /* Fundo amarelo ao passar o mouse */
-    background-color: #fff;
-    color: #1e1e1e;
-}
-
-/* GALERIA */
-.gallery-item {
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.gallery-item img {
-    transition: transform 0.4s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
-
-/* SEÇÃO CTA (CALL TO ACTION)
-.cta-section {
-    background-color: var(--dark-bg);
-} */
-
-/* BOTÃO FLUTUANTE WHATSAPP */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100;
-    transition: transform 0.2s;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    color: #fff;
-}
-
-.whatsapp-float i {
-    margin-top: 15px;
-}
-
-/* SEÇÃO PACOTES */
+/* ========================================= */
+/* CARDS DE PACOTES                         */
+/* ========================================= */
 .package-card {
     background-color: var(--dark-surface);
     border: 2px solid transparent;
     border-radius: 15px;
-    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    transition: all var(--transition-speed) ease;
     color: #fff;
+    overflow: hidden;
 }
 
 .package-card.popular {
@@ -191,22 +170,25 @@ footer {
 }
 
 .package-card ul {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
+    line-height: 1.8;
 }
 
 .package-card i {
     color: var(--primary-color);
 }
 
-/* Efeito Glow no Hover */
+/* Efeitos de hover para cada pacote */
 .package-card.package-gold:hover {
-    border-color: #ffc107;
-    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 30px rgba(255, 193, 7, 0.4);
+    transform: translateY(-5px);
 }
 
 .package-card.package-silver:hover {
     border-color: #c0c0c0;
-    box-shadow: 0 0 20px rgba(192, 192, 192, 0.5);
+    box-shadow: 0 0 30px rgba(192, 192, 192, 0.4);
+    transform: translateY(-5px);
 }
 
 .package-card.package-silver i {
@@ -215,238 +197,218 @@ footer {
 
 .package-card.package-bronze:hover {
     border-color: #cd7f32;
-    box-shadow: 0 0 20px rgba(205, 127, 50, 0.5);
+    box-shadow: 0 0 30px rgba(205, 127, 50, 0.4);
+    transform: translateY(-5px);
 }
 
 .package-card.package-bronze i {
     color: #cd7f32;
 }
 
-.bi.bi-instagram {
-    color: #fffffff6;
-    font-size: 30px;
-    cursor: pointer;
+/* ========================================= */
+/* CARDS DE SERVIÇOS                        */
+/* ========================================= */
+.service-card {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 12px;
+    transition: all var(--transition-speed) ease;
+    overflow: hidden;
 }
 
-/* Adiciona margem entre os botões da seção de contato */
-.cta-section a.btn {
-    margin: 10px;
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--primary-color);
 }
 
-#servicos_coleta {
+.card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform var(--transition-speed) ease;
+}
+
+.service-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.service-card .btn-outline-warning {
+    border-color: #f8f9fa;
+    color: #f8f9fa;
+    background-color: var(--primary-red);
+    transition: all var(--transition-speed) ease;
+}
+
+.service-card .btn-outline-warning:hover {
+    background-color: #fff;
+    color: #1e1e1e;
+    border-color: #fff;
+}
+
+/* ========================================= */
+/* SEÇÕES                                   */
+/* ========================================= */
+#servicos, #servicos_coleta {
     background-color: var(--dark-surface);
 }
-/* ========================================= */
-/* ANIMAÇÃO PULSANTE PARA ÍCONE WHATSAPP     */
-/* ========================================= */
 
-/* 1. Definição da animação "pulse" (a parte que faltava) */
+.cta-section {
+    background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-bg) 100%);
+}
+
+/* ========================================= */
+/* FORMULÁRIO                               */
+/* ========================================= */
+.service-select-card {
+    border-radius: 15px;
+    border: 1px solid #444;
+}
+
+.form-control, .form-select {
+    border-color: #444;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+/* ========================================= */
+/* FOOTER                                   */
+/* ========================================= */
+footer {
+    background-color: var(--dark-surface);
+}
+
+footer .small {
+    color: var(--text-muted);
+}
+
+.bi-instagram {
+    color: #fff;
+    font-size: 32px;
+    transition: all var(--transition-speed) ease;
+}
+
+.bi-instagram:hover {
+    color: #E1306C;
+    transform: scale(1.2);
+}
+
+/* ========================================= */
+/* BOTÃO FLUTUANTE WHATSAPP                 */
+/* ========================================= */
 @keyframes pulse {
     0% {
         transform: scale(1);
         opacity: 1;
     }
-
     70% {
-        transform: scale(1.7);
-        /* Aumenta o tamanho do anel */
+        transform: scale(1.5);
         opacity: 0;
-        /* Faz o anel desaparecer */
     }
-
     100% {
         transform: scale(1);
         opacity: 0;
     }
 }
 
-/* 2. Estilo do container principal do ícone */
 #whatsapp-icon {
-    height: 60px;
-    /* Tamanho do círculo principal */
-    width: 60px;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
     z-index: 1000;
-    cursor: pointer;
-
-    background-color: #25D366;
-    /* Cor de fundo padrão do WhatsApp */
+    background-color: var(--success-green);
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-
-    /* Centraliza a imagem/ícone dentro do círculo */
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
 }
 
 #whatsapp-icon:hover {
-    transform: scale(1.1);
-    /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
-/* 3. Ajuste para a imagem do WhatsApp dentro do círculo */
 #whatsapp-icon img {
-    width: 55%;
-    /* Deixa a imagem com uma margem interna agradável */
+    width: 60%;
     height: auto;
 }
 
-/* 4. O anel que vai pulsar (usando um pseudo-elemento) */
 #whatsapp-icon::after {
     content: '';
     position: absolute;
-    z-index: -1;
-    /* Coloca o anel ATRÁS do ícone principal */
-
     width: 100%;
     height: 100%;
-
-    background-color: #25D366;
+    background-color: var(--success-green);
     border-radius: 50%;
-
-    /* Aplica a animação que definimos acima */
+    z-index: -1;
     animation: pulse 2s infinite;
 }
 
-
-/* FONTES E ESTILOS GERAIS */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-:root {
-    --dark-bg: #121212;
-    --dark-surface: #1e1e1e;
-    --primary-color: #ffc107;
-    /* Amarelo Bootstrap */
-    --text-light: #f8f9fa;
-    --text-muted: #adb5bd;
-    /* Corrigido de --text-light duplicado */
+/* ========================================= */
+/* RESPONSIVIDADE                           */
+/* ========================================= */
+@media (max-width: 992px) {
+    .hero-section {
+        min-height: 70vh;
+        background-attachment: scroll;
+    }
+    
+    .package-card.popular {
+        transform: scale(1);
+    }
+    
+    #logo {
+        height: 50px;
+    }
 }
 
-#logo {
-    height: 60px
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section .lead {
+        font-size: 1rem;
+    }
+    
+    .navbar-nav {
+        text-align: center;
+        padding: 1rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+    }
+    
+    #whatsapp-icon {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-light);
-    scroll-padding-top: 100px;
-}
-
-html {
-    scroll-padding-top: 70px;
-    scroll-behavior: smooth;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 700;
-}
-
-
-/* ANIMAÇÃO DE SCROLL */
-.reveal {
-    position: relative;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 1s ease;
-}
-
-.reveal.active {
-    transform: translateY(0px);
-    opacity: 1;
-}
-
-/* NAVBAR */
-.navbar-brand strong {
-    color: var(--primary-color);
-}
-
-.navbar-dark .nav-link {
-    color: rgba(255, 255, 255, 0.75);
-    transition: color 0.2s;
-}
-
-.navbar-dark .nav-link:hover,
-.navbar-dark .nav-link.active {
-    color: #ce1d1df6;
-}
-
-.btn-warning {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: #000;
-}
-
-/* SEÇÃO DE SERVIÇOS */
-#servicos {
-    background-color: var(--dark-surface);
-}
-
-.service-card {
-    background-color: #2a2a2a;
-    border: 1px solid #444;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-}
-
-.card-img-top {
-    height: 200px;
-    object-fit: cover;
-}
-
-.service-card .btn-outline-warning {
-    border-color: #f8f9fa;
-    color: #f8f9fa;
-    transition: all 0.3s ease;
-    background-color: #ce1d1df6;
-}
-
-.service-card .btn-outline-warning:hover {
-    background-color: #fff;
-    color: #1e1e1e;
-}
-
-/* SEÇÃO CTA (CALL TO ACTION) */
-.cta-section {
-    background-color: var(--dark-surface);
-}
-
-/* BOTÃO FLUTUANTE WHATSAPP */
-#whatsapp-icon {
-    height: 60px;
-    width: 60px;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-    cursor: pointer;
-    background-color: #25D366;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease;
-}
-
-#whatsapp-icon:hover {
-    transform: scale(1.1);
-}
-
-#whatsapp-icon img {
-    width: 55%;
-    height: auto;
+@media (max-width: 576px) {
+    .display-3 {
+        font-size: 1.75rem;
+    }
+    
+    .display-4 {
+        font-size: 1.5rem;
+    }
+    
+    .display-5 {
+        font-size: 1.25rem;
+    }
+    
+    .card-img-top {
+        height: 180px;
+    }
 }
