@@ -4,23 +4,28 @@
 
 /* Define variáveis globais para consistência e fácil manutenção */
 :root {
-  /* Espaçamento */
-  --spacing-xs: 0.5rem;   /* 8px */
-  --spacing-sm: 1rem;     /* 16px */
-  --spacing-md: 1.5rem;   /* 24px */
-  --spacing-lg: 2.5rem;   /* 40px */
-  --spacing-xl: 4rem;     /* 64px */
+    /* Espaçamento */
+    --spacing-xs: 0.5rem;
+    /* 8px */
+    --spacing-sm: 1rem;
+    /* 16px */
+    --spacing-md: 1.5rem;
+    /* 24px */
+    --spacing-lg: 2.5rem;
+    /* 40px */
+    --spacing-xl: 4rem;
+    /* 64px */
 
-  /* Tipografia Fluida (Mínimo, Ideal, Máximo) */
-  --fs-h1: clamp(1.75rem, 1.25rem + 2.5vw, 3rem);
-  --fs-h2: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
-  --fs-h3: clamp(1.3rem, 1.1rem + 1vw, 1.75rem);
-  --fs-lead: clamp(0.95rem, 0.9rem + 0.5vw, 1.15rem);
-  --fs-base: 1rem;
-  --fs-small: 0.9rem;
+    /* Tipografia Fluida (Mínimo, Ideal, Máximo) */
+    --fs-h1: clamp(1.75rem, 1.25rem + 2.5vw, 3rem);
+    --fs-h2: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+    --fs-h3: clamp(1.3rem, 1.1rem + 1vw, 1.75rem);
+    --fs-lead: clamp(0.95rem, 0.9rem + 0.5vw, 1.15rem);
+    --fs-base: 1rem;
+    --fs-small: 0.9rem;
 
-  /* Outros */
-  --border-radius: 8px;
+    /* Outros */
+    --border-radius: 8px;
 }
 
 /* ========================================= */
@@ -29,116 +34,142 @@
 
 /* TABLETS (992px e abaixo) */
 @media (max-width: 992px) {
-  .hero-section {
-    min-height: 80vh;
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
+    .hero-section {
+        min-height: 80vh;
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
 
-  #logo {
-    height: 55px;
-  }
+    #logo {
+        height: 55px;
+    }
 
-  /* Remove o efeito de escala do card popular em telas menores */
-  .package-card.popular {
-    transform: scale(1);
-    margin-bottom: var(--spacing-lg);
-  }
+    /* Remove o efeito de escala do card popular em telas menores */
+    .package-card.popular {
+        transform: scale(1);
+        margin-bottom: var(--spacing-lg);
+    }
 
-  /* Adiciona espaçamento entre os cards em layout de coluna */
-  .col-lg-4 {
-    margin-bottom: var(--spacing-md);
-  }
+    /* Adiciona espaçamento entre os cards em layout de coluna */
+    .col-lg-4 {
+        margin-bottom: var(--spacing-md);
+    }
 }
 
 /* SMARTPHONES LANDSCAPE E TABLETS PEQUENOS (768px e abaixo) */
 @media (max-width: 768px) {
-  section {
-    scroll-margin-top: 350px; /* Ajuste genérico para header fixo */
-    padding: var(--spacing-lg) 0 !important;
-  }
+    section {
+        scroll-margin-top: 350px;
+        /* Ajuste genérico para header fixo */
+        padding: var(--spacing-lg) 0 !important;
+    }
 
-  .hero-section {
-    height: 100vh;
-    padding: var(--spacing-lg) var(--spacing-sm);
-    /* Troca para a imagem mobile e otimiza o parallax */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bannser_mobile.png') no-repeat center center;
-    background-size: cover;
-    background-attachment: scroll; /* 'fixed' pode causar problemas de performance em mobile */
-  }
+    .hero-section {
+        /* Garante que a seção ocupe a altura VISÍVEL da tela, adaptando-se à UI do navegador mobile */
+        height: 100dvh;
+        /* Fallback para navegadores mais antigos */
+        height: 100vh;
 
-  /* Estiliza o menu hamburguer */
-  .navbar-nav {
-    text-align: center;
-    padding: var(--spacing-xs) 0;
-    background-color: rgba(0, 0, 0, 0.95);
-    border-radius: var(--border-radius);
-    margin-top: var(--spacing-sm);
-  }
+        /* Centraliza o conteúdo (já presente no seu HTML com flex, mas bom ter aqui) */
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-  .navbar-nav .nav-link {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
+        padding: 0 1rem;
+        /* Um padding horizontal simples */
 
-  .navbar-nav .nav-item:last-child .nav-link {
-    border-bottom: none;
-  }
+        /* Imagem de fundo com overlay */
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('../img/bannser_mobile.png') no-repeat center center;
 
-  .card-img-top {
-    height: 200px;
-    object-fit: cover; /* Garante que a imagem não se distorça */
-  }
+        /* Essencial para a imagem cobrir todo o espaço sem distorcer */
+        background-size: cover;
 
-  #whatsapp-icon {
-    width: 55px;
-    height: 55px;
-    bottom: 20px;
-    right: 20px;
-  }
+        /* 'scroll' é a melhor opção para performance em mobile */
+        background-attachment: scroll;
+    }
+
+    /* Melhora a legibilidade do texto sobre a imagem */
+    .hero-section h1,
+    .hero-section p {
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Estiliza o menu hamburguer */
+    .navbar-nav {
+        text-align: center;
+        padding: var(--spacing-xs) 0;
+        background-color: rgba(0, 0, 0, 0.95);
+        border-radius: var(--border-radius);
+        margin-top: var(--spacing-sm);
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar-nav .nav-item:last-child .nav-link {
+        border-bottom: none;
+    }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        /* Garante que a imagem não se distorça */
+    }
+
+    #whatsapp-icon {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
 }
 
 /* SMARTPHONES PORTRAIT (576px e abaixo) */
 @media (max-width: 576px) {
-  .hero-section {
-    min-height: 60vh;
-    padding: var(--spacing-lg) var(--spacing-xs);
-  }
+    .hero-section {
+        min-height: 60vh;
+        padding: var(--spacing-lg) var(--spacing-xs);
+    }
 
-  #logo {
-    height: 50px;
-  }
-  
-  .text-center.mb-5 {
-    margin-bottom: var(--spacing-lg) !important;
-  }
+    #logo {
+        height: 50px;
+    }
 
-  .card-body,
-  .service-select-card {
-    padding: var(--spacing-md) !important;
-  }
+    .text-center.mb-5 {
+        margin-bottom: var(--spacing-lg) !important;
+    }
 
-  .card-header {
-    padding: var(--spacing-sm) !important;
-  }
+    .card-body,
+    .service-select-card {
+        padding: var(--spacing-md) !important;
+    }
 
-  .card-img-top {
-    height: 180px;
-  }
+    .card-header {
+        padding: var(--spacing-sm) !important;
+    }
 
-  .btn {
-    width: 100%; /* Botões ocupam a largura toda para facilitar o toque */
-  }
+    .card-img-top {
+        height: 180px;
+    }
+
+    .btn {
+        width: 100%;
+        /* Botões ocupam a largura toda para facilitar o toque */
+    }
 }
 
 /* SMARTPHONES PEQUENOS (400px e abaixo) */
 @media (max-width: 400px) {
-  #logo {
-    height: 45px;
-  }
+    #logo {
+        height: 45px;
+    }
 
-  .card-img-top {
-    height: 160px;
-  }
+    .card-img-top {
+        height: 160px;
+    }
 }
 
 /* ========================================= */
@@ -147,41 +178,43 @@
 
 /* ORIENTAÇÃO LANDSCAPE EM SMARTPHONES */
 @media (max-height: 500px) and (orientation: landscape) {
-  .hero-section {
-    min-height: 100vh;
-    padding: var(--spacing-xl) var(--spacing-md);
-  }
+    .hero-section {
+        min-height: 100vh;
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
 }
 
 /* MELHORIAS DE TOQUE */
 @media (hover: none) and (pointer: coarse) {
-  /* Aumenta área de toque dos links do menu */
-  .nav-link {
-    padding: 1rem 1.5rem !important;
-  }
 
-  /* Remove hover effects em dispositivos que não têm hover */
-  .service-card:hover,
-  .package-card:hover {
-    transform: none;
-  }
+    /* Aumenta área de toque dos links do menu */
+    .nav-link {
+        padding: 1rem 1.5rem !important;
+    }
 
-  /* Garante que botões tenham um tamanho mínimo para o toque */
-  .btn {
-    min-height: 44px;
-    padding: 12px 20px;
-  }
+    /* Remove hover effects em dispositivos que não têm hover */
+    .service-card:hover,
+    .package-card:hover {
+        transform: none;
+    }
+
+    /* Garante que botões tenham um tamanho mínimo para o toque */
+    .btn {
+        min-height: 44px;
+        padding: 12px 20px;
+    }
 }
 
 /* PREFERÊNCIA POR MODO ESCURO */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --dark-bg: #0a0a0a;
-    --dark-surface: #1a1a1a;
-    /* Aqui você adicionaria outras variáveis, como cor do texto */
-    /* --dark-text: #e0e0e0; */
-  }
-  /* Exemplo de aplicação:
+    :root {
+        --dark-bg: #0a0a0a;
+        --dark-surface: #1a1a1a;
+        /* Aqui você adicionaria outras variáveis, como cor do texto */
+        /* --dark-text: #e0e0e0; */
+    }
+
+    /* Exemplo de aplicação:
   body {
     background-color: var(--dark-bg);
     color: var(--dark-text);
@@ -194,12 +227,13 @@
 
 /* PREFERÊNCIA POR REDUÇÃO DE MOVIMENTO */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
