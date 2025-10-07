@@ -58,7 +58,7 @@
   }
 
   .hero-section {
-    min-height: 70vh;
+    height: 100vh;
     padding: var(--spacing-lg) var(--spacing-sm);
     /* Troca para a imagem mobile e otimiza o parallax */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bannser_mobile.png') no-repeat center center;
