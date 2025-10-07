@@ -83,10 +83,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-section {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                 url('../img/banner_teste.png') no-repeat center center;
-    background-attachment: fixed;
     height: 100vh;
-    background-size: cover;
-
 }
 
 .hero-section::before {
