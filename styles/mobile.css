@@ -44,8 +44,9 @@
 /* SMARTPHONES LANDSCAPE (768px e abaixo) */
 @media (max-width: 768px) {
     /* Body */
-    body {
-        scroll-padding-top: 70px;
+    section {
+        scroll-margin-top: 355px;
+      
     }
     
     /* Hero Section */
@@ -54,7 +55,14 @@
         background-attachment: scroll;
         padding: 40px 15px;
     }
-    
+
+    .hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bannser_mobile.png') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+
+}
     .hero-section h1 {
         font-size: 2rem;
         margin-bottom: 1rem;

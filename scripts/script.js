@@ -87,7 +87,7 @@ const servicos = [
   {
     nome: 'Cristalização de Pintura',
     descricao: 'Proteção superior sobre a lataria, vedando micro poros da pintura.',
-    imagem: 'https://blog.casadosoldador.com.br/wp-content/uploads/2022/09/renovar-a-pintura-apos-anos-de-uso.jpg'
+    imagem: 'https://blog.casadosoldador.com.br/wp-content/uploads/2022/09/renovar-a-pintura-apos-anos-de-uso-o-que-e-polimento-cristalizado-entenda-essa-tecnica-entenda-o-processo-dicas-1-20240312-165358.jpg'
   },
   {
     nome: 'Vitrificação de Pintura',
@@ -102,7 +102,7 @@ const servicos = [
   {
     nome: 'Vitrificação de Vidros',
     descricao: 'Evita fixação de sujeiras e melhora a visibilidade.',
-    imagem: 'https://images.tcdn.com.br/img/img_prod/1109830/vitria_ceramic_30ml_easytech.jpg'
+    imagem: 'https://images.tcdn.com.br/img/img_prod/1109830/vitria_ceramic_30ml_easytech_vitrificador_de_vidros_com_nanotecnologia_2183_2_23b8659bf41dac19f892034e925bc222.jpg'
   },
   {
     nome: 'Descontaminação de Pintura',
@@ -112,7 +112,7 @@ const servicos = [
   {
     nome: 'Polimento de Faróis',
     descricao: 'Remove arranhões e opacidade, aumentando a iluminação.',
-    imagem: 'https://img.freepik.com/fotos-gratis/amplo-plano-do-processo-de-cuidados-com-o-carro.jpg'
+    imagem: 'https://img.freepik.com/fotos-gratis/amplo-plano-do-processo-de-cuidados-com-o-carro_23-2149193626.jpg?semt=ais_hybrid&w=740&q=80'
   },
   {
     nome: 'Limpeza Técnica de Motor',
