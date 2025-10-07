@@ -57,10 +57,14 @@
 
 /* SMARTPHONES LANDSCAPE E TABLETS PEQUENOS (768px e abaixo) */
 @media (max-width: 768px) {
-    section {
+    section{
         scroll-margin-top: 350px;
         /* Ajuste genérico para header fixo */
         padding: var(--spacing-lg) 0 !important;
+    }
+    
+    a {
+        scroll-margin-top: 300px;
     }
 
    @media (max-width: 768px) {
