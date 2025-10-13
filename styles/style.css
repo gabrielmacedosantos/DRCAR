@@ -242,6 +242,79 @@ h1, h2, h3, h4, h5, h6 {
     border-color: #fff;
 }
 
+/* Garante que os cards na mesma linha tenham a mesma altura */
+.h-100 {
+    height: 100% !important;
+}
+/* Alinha o conteúdo verticalmente dentro dos cards */
+.d-flex.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-grow-1 {
+    flex-grow: 1;
+}
+.mt-auto {
+    margin-top: auto;
+}
+
+/* --- ESTILOS DO PREÇO COM DESTAQUE --- */
+
+/* Estilo base para cada item de preço */
+.preco-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Estilo para o valor (ex: R$ 25) */
+.preco-item .preco-valor {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffc107; /* Cor text-warning do Bootstrap */
+}
+
+/* Estilo para a condição (ex: Sem pretinho...) */
+.preco-item .preco-condicao {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* * A MÁGICA DO DESTAQUE 
+*/
+.preco-item.preco-destaque {
+  background-color: #ffc107; /* Fundo amarelo para destacar */
+  border: 2px solid #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+
+/* Muda a cor do texto DENTRO do destaque para ficar legível */
+.preco-item.preco-destaque .preco-valor,
+.preco-item.preco-destaque .preco-condicao {
+  color: #212529; /* Cor de texto escura */
+}
+
+/* Selo opcional de "OFERTA" */
+.preco-item.preco-destaque::before {
+  content: 'MAIS ECONÔMICO';
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0d6efd; /* Azul primário do Bootstrap */
+  color: white;
+  padding: 3px 12px;
+  border-radius: 15px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
 /* ========================================= */
 /* SEÇÕES                                   */
 /* ========================================= */

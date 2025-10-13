@@ -97,7 +97,11 @@
   .hero-section p {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   }
-  
+  span.price {
+    font-size: 1.7rem;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 
