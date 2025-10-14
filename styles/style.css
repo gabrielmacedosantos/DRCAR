@@ -27,12 +27,12 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--dark-bg);
     color: var(--text-light);
-    scroll-padding-top: 90px;
+    scroll-padding-top: 100px;
     overflow-x: hidden;
 }
 
 html {
-    scroll-padding-top: 70px;
+    scroll-padding-top: 75px;
     scroll-behavior: smooth;
 }
 
@@ -84,6 +84,8 @@ h1, h2, h3, h4, h5, h6 {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                 url('../img/banner_teste.png') no-repeat center center;
     height: 100vh;
+    background-position: center;
+    background-size: cover;
 }
 
 .hero-section::before {
