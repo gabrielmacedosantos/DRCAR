@@ -72,7 +72,7 @@ const servicos = [
   {
     nome: 'Impermeabilização dos Tecidos',
     descricao: 'Super proteção do tecido, maior durabilidade e prevenção de fungos.',
-    imagem: 'https://premiumautosom.com.br/wp-content/uploads/2023/01/Servico-de-impermeabilizacao-de-banco.png'
+    imagem: 'https://rikinfilm.com.br/wp-content/uploads/2022/04/07-impermeabilizacao02.jpg'
   },
   {
     nome: 'Higienização do Porta Malas',
