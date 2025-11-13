@@ -23,9 +23,6 @@
     --fs-lead: clamp(0.95rem, 0.9rem + 0.5vw, 1.15rem);
     --fs-base: 1rem;
     --fs-small: 0.9rem;
-
-    /* Outros */
-    --border-radius: 8px;
 }
 
 /* ========================================= */
@@ -56,38 +53,38 @@
 }
 
 /* SMARTPHONES LANDSCAPE E TABLETS PEQUENOS (768px e abaixo) */
+
+
 @media (max-width: 768px) {
-    section{
-        scroll-margin-top: 290px;
-        /* Ajuste genérico para header fixo */
-        padding: var(--spacing-lg) 0 !important;
-    }
-    
-    a {
-        scroll-margin-top: 290px;
-    }
 
-   @media (max-width: 768px) {
-    
-  .hero-section {
-    /* --- ESTRUTURA E TAMANHO --- */
-    height: 100dvh; /* Altura dinâmica para se adaptar à UI do navegador mobile */
-    height: 90vh;  /* Fallback para navegadores mais antigos */
-    padding: 0 1rem; /* Espaçamento lateral para não colar nas bordas */
-    color: #fff;     /* Cor do texto padrão para a seção */
+  /* faz o collapse ficar em overlay em vez de empurrar o conteúdo */
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(16,16,16,0.98); /* ajuste conforme o tema */
+    z-index: 1029;
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(100vh - var(--header-offset) - 8px);
+    overflow-y: auto;
+  }
 
-    /* --- CENTRALIZAÇÃO DO CONTEÚDO --- */
-    display: flex;
-    align-items: center;      /* Alinhamento vertical */
-    justify-content: center;  /* Alinhamento horizontal */
-    text-align: center;       /* Alinhamento do texto interno */
+  /* mantém a animação do collapse usando altura */
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: 0;
+    overflow: hidden;
+  }
 
-    /* --- IMAGEM DE FUNDO --- */
-    background: 
-      /* Camada escura para dar contraste */
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      /* Sua imagem, centralizada */
-      url('../img/bannser_mobile.png') no-repeat center center;
+  .navbar-collapse.collapse.show {
+    height: auto;
+  }
+
+  .navbar-collapse .nav-link {
+    padding: 0.75rem 1rem;
+    color: #fff;
 
   }
 
@@ -103,8 +100,6 @@
     align-items: center;
   }
 }
-
-
     /* Melhora a legibilidade do texto sobre a imagem */
     .hero-section h1,
     .hero-section p {
@@ -112,17 +107,9 @@
     }
 
     /* Estiliza o menu hamburguer */
-    .navbar-nav {
-        text-align: center;
-        padding: var(--spacing-xs) 0;
-        background-color: rgba(0, 0, 0, 0.95);
-        border-radius: var(--border-radius);
-        margin-top: var(--spacing-sm);
-    }
 
     .navbar-nav .nav-link {
         padding: 0.75rem 1rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .navbar-nav .nav-item:last-child .nav-link {
@@ -141,7 +128,6 @@
         bottom: 20px;
         right: 20px;
     }
-}
 
 /* SMARTPHONES PORTRAIT (576px e abaixo) */
 @media (max-width: 576px) {
@@ -228,6 +214,8 @@
         --dark-surface: #1a1a1a;
         /* Aqui você adicionaria outras variáveis, como cor do texto */
         /* --dark-text: #e0e0e0; */
+        --border-radius: 8px;
+        --header-offset: 80px;
     }
 
     /* Exemplo de aplicação:

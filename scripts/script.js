@@ -344,6 +344,7 @@ function configurarNavegacaoSuave() {
   });
 }
 
+
 /* ========================================= */
 /* MÁSCARA DE TELEFONE E CEP               */
 /* ========================================= */
@@ -394,3 +395,87 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Adiciona listener de scroll
 window.addEventListener('scroll', reveal);
+
+/* ...existing code... */
+
+/* ========================================= */
+/* AJUSTE DINÂMICO DO OFFSET DE HEADER      */
+/* ========================================= */
+(function () {
+  function updateHeaderOffset() {
+    const navbar = document.querySelector('.navbar');
+    let height = navbar ? Math.ceil(navbar.getBoundingClientRect().height) : 80;
+
+    const navbarCollapse = document.getElementById('navbarNav');
+    const collapseIsShown = navbarCollapse && navbarCollapse.classList.contains('show');
+    const collapsePos = navbarCollapse ? getComputedStyle(navbarCollapse).position : null;
+
+    // só soma a altura do collapse se ele estiver no fluxo (não absolute/fixed)
+    if (collapseIsShown && collapsePos !== 'absolute' && collapsePos !== 'fixed') {
+      height += Math.ceil(navbarCollapse.getBoundingClientRect().height);
+    }
+
+    const extra = 12; // ajuste fino se necessário
+    document.documentElement.style.setProperty('--header-offset', `${height + extra}px`);
+  }
+
+  window.addEventListener('load', updateHeaderOffset);
+  window.addEventListener('resize', updateHeaderOffset);
+  window.addEventListener('orientationchange', updateHeaderOffset);
+  setTimeout(updateHeaderOffset, 600);
+  setTimeout(updateHeaderOffset, 1200);
+
+  const navbarCollapse = document.getElementById('navbarNav');
+  if (navbarCollapse) {
+    navbarCollapse.addEventListener('shown.bs.collapse', updateHeaderOffset);
+    navbarCollapse.addEventListener('hidden.bs.collapse', updateHeaderOffset);
+  }
+})();
+
+/* ========================================= */
+/* NAVEGAÇÃO SUAVE (substitui a anterior)    */
+/* ========================================= */
+function configurarNavegacaoSuave() {
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (!href || href === '#' || href.length <= 1) return;
+
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      e.preventDefault();
+
+      // pega offset atual calculado pelo JS/CSS
+      const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-offset')) || 0;
+
+      // calcula posição absoluta do alvo e aplica compensação do header
+      const targetTop = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: Math.max(0, Math.floor(targetTop)),
+        behavior: 'smooth'
+      });
+
+      // fecha o menu mobile com API do Bootstrap quando disponível
+      try {
+        const navEl = document.getElementById('navbarNav');
+        if (window.bootstrap && navEl) {
+          const inst = bootstrap.Collapse.getInstance(navEl) || new bootstrap.Collapse(navEl, { toggle: false });
+          inst.hide();
+        } else {
+          const navCollapse = document.querySelector('.navbar-collapse');
+          if (navCollapse && navCollapse.classList.contains('show')) {
+            navCollapse.classList.remove('show');
+            const toggler = document.querySelector('.navbar-toggler');
+            if (toggler) toggler.setAttribute('aria-expanded', 'false');
+          }
+        }
+      } catch (err) {
+        // silent
+      }
+    });
+  });
+}
+
+/* ...existing code... */
