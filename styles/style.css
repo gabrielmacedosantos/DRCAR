@@ -82,14 +82,13 @@ h1, h2, h3, h4, h5, h6 {
 /* ========================================= */
 .hero-section {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('../img/banner_teste.png') no-repeat center center;
-    height: 100vh;
+    url('../img/bg-big.jpg') no-repeat center center;
+    height: 92vh;
     background-position: center;
     background-size: cover;
 }
 
 .hero-section::before {
-    content: '';
     position: absolute;
     top: 0;
     left: 0;
