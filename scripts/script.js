@@ -39,6 +39,36 @@ const pacotes = [
     popular: false
   },
 ];
+// Aguarda o HTML inteiro carregar antes de rodar o script
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const seta = document.getElementById("scroll-top");
+    
+    if (seta) {
+        window.addEventListener("scroll", function() {
+            // Captura a rolagem de todas as formas possíveis do navegador
+            let topoJanela = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            
+            console.log("Pixels rolados:", topoJanela); // Isso vai printar no console para sabermos se está lendo
+            
+            if (topoJanela > 200) {
+                seta.style.setProperty('display', 'block', 'important');
+            } else {
+                seta.style.setProperty('display', 'none', 'important');
+            }
+        });
+
+        // Evento de clique para subir suavemente
+        seta.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    } else {
+        console.log("Erro: O elemento #scroll-top não foi encontrado na página.");
+    }
+});
 
 /* ========================================= */
 /* DADOS DOS SERVIÇOS                       */
@@ -47,12 +77,12 @@ const servicos = [
   {
     nome: 'Lavagem Técnica',
     descricao: 'Lavagem essencial para cuidar da pintura. Abrange todas as áreas, incluindo rodas e regiões de difícil acesso.',
-    imagem: 'https://www.olhardireto.com.br/imgsite/noticias/FOTO-LUCIANA-03.jpg'
+    imagem: 'https://img.magnific.com/fotos-gratis/lindo-carro-no-servico-de-lavagem_23-2149212221.jpg'
   },
   {
     nome: 'Enceramento Wax',
     descricao: 'Cria uma película de proteção sobre a lataria, vedando os micro poros da pintura.',
-    imagem: 'https://surfnshine.com/wp-content/uploads/2023/07/waxing-a-brand-new-car-1024x576.jpg'
+    imagem: 'https://img.freepik.com/fotos-premium/serie-de-detalhes-de-carros-trabalhador-limpando-carro-vermelho_1068916-150.jpg'
   },
   {
     nome: 'Revitalização de Plásticos Externos',
@@ -107,7 +137,7 @@ const servicos = [
   {
     nome: 'Descontaminação de Pintura',
     descricao: 'Remove contaminantes que deixam a pintura áspera.',
-    imagem: 'https://blog.anjo.com.br/wp-content/uploads/2024/02/como-descontaminar-pintura-automotiva.png'
+    imagem: 'https://dpowergarage.pt/wp-content/uploads/2025/09/istockphoto-1287044692-612x612-1.jpg'
   },
   {
     nome: 'Polimento de Faróis',
@@ -153,7 +183,7 @@ const servicosExtras = [
   {
     nome: 'Impermeabilização de Estofados',
     descricao: 'Escudo protetor que aumenta a vida útil do tecido, mantendo-o limpo.',
-    imagem: 'https://sebrae.com.br/Sebrae/Portal%20Sebrae/Ideias%20de%20Negocio/Importer/Images/270_background.webp'
+    imagem: 'https://www.higiclear.com/wp-content/uploads/2022/05/limpeza-de-sofa-e-impermeabilizacao.jpg'
   },
   {
     nome: 'Aplicação de Insulfilm em Janelas',

@@ -177,6 +177,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Efeitos de hover para cada pacote */
+.package-card.package-gold{
+    border: 1px solid var(--primary-color);
+}
+
 .package-card.package-gold:hover {
     border-color: var(--primary-color);
     box-shadow: 0 0 30px rgba(255, 193, 7, 0.4);
@@ -257,6 +261,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 .mt-auto {
     margin-top: auto;
+}
+
+#scroll-top {
+    position: fixed;
+    bottom: 18px;
+    margin-left: 25px;
+    cursor: pointer;
+    font-size: 32px;
+    z-index: 10005; /* Valor alto para garantir que fique por cima de tudo */
+    
+    /* Força o botão a começar completamente escondido */
+    display: none !important; 
 }
 
 /* --- ESTILOS DO PREÇO COM DESTAQUE --- */
