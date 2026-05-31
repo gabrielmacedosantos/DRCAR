@@ -371,6 +371,12 @@ footer .small {
     color: var(--text-muted);
 }
 
+#bi-instagram img {
+   
+    height: 45px;
+}
+
+/*
 .bi-instagram {
     color: #fff;
     font-size: 32px;
